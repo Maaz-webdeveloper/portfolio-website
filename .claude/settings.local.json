@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nFix: Add graceful error handling for invalid Redis credentials\n\n- Wrap Redis client creation in try-catch to handle initialization errors\n- Add error handling for Redis fetch operations during build\n- Default to 0 views when Redis is unavailable or fails\n- Prevents build failures when Redis credentials are invalid or instance is unreachable\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
