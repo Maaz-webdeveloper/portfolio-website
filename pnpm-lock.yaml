@@ -65,9 +65,6 @@ importers:
       remark-gfm:
         specifier: 3.0.1
         version: 3.0.1
-      typescript:
-        specifier: ^5.2.2
-        version: 5.9.3
     devDependencies:
       '@opentelemetry/api':
         specifier: 1.4.1
@@ -105,6 +102,9 @@ importers:
       tailwindcss-debug-screens:
         specifier: ^2.2.1
         version: 2.2.1(tailwindcss@3.4.19(yaml@2.8.2))
+      typescript:
+        specifier: 5.2.2
+        version: 5.2.2
 
 packages:
 
@@ -1783,8 +1783,8 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
 
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+  typescript@5.2.2:
+    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3908,7 +3908,7 @@ snapshots:
 
   type-fest@3.13.1: {}
 
-  typescript@5.9.3: {}
+  typescript@5.2.2: {}
 
   uncrypto@0.1.3: {}
 

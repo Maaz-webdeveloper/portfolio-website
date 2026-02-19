@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     title: "Maaz | Frontend Developer",
     description:
       "Frontend Developer specializing in React and Next.js. Building modern, responsive and high-performance web experiences.",
-    url: "https://github.com/Maaz-webdeveloper",
+    url: "https://maaz.dev", // ✅ Apna domain
     siteName: "Maaz Portfolio",
     images: [
       {
-        url: "/og.png", // agar apka apna og image ho to yahan path do
+        url: "/og.png", // ✅ apna OG image
         width: 1200,
         height: 630,
       },
