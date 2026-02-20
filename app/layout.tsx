@@ -3,11 +3,13 @@ import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
-
 export const metadata: Metadata = {
+  // 👇 Isko aise add karein
+  metadataBase: new URL('https://portfolio-website-maaz-webdevelopers-projects.vercel.app'), 
+  
   title: {
     default: "Maaz | Frontend Developer",
-    template: "%m | Maaz",
+    template: "%s | Maaz",
   },
   description:
     "Maaz is a passionate Frontend Developer specializing in React and Next.js, building clean, modern and scalable web applications.",
@@ -15,11 +17,11 @@ export const metadata: Metadata = {
     title: "Maaz | Frontend Developer",
     description:
       "Frontend Developer specializing in React and Next.js. Building modern, responsive and high-performance web experiences.",
-    url: "https://maaz.dev", // ✅ Apna domain
+    url: "https://portfolio-website-maaz-webdevelopers-projects.vercel.app",
     siteName: "Maaz Portfolio",
     images: [
       {
-        url: "/og.png", // ✅ apna OG image
+        url: "/og.png",
         width: 1200,
         height: 630,
       },
@@ -39,7 +41,6 @@ export const metadata: Metadata = {
     shortcut: "/favicon.png",
   },
 };
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",

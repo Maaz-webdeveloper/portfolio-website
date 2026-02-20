@@ -41,6 +41,9 @@
     "tailwindcss-debug-screens": "^2.2.1",
     "typescript": "5.2.2"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "pnpm": {
     "overrides": {
       "@opentelemetry/api": "1.4.1",
