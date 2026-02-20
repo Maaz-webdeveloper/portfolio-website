@@ -1,4 +1,4 @@
-# 🚀 Maaz's Developer Portfolio
+# 🚀 Maaz-webdeveloper Portfolio
 
 > A sleek, blazing-fast personal portfolio showcasing projects, skills, and contact information — built with modern web technologies and a focus on performance and developer experience.
 
