@@ -29,8 +29,9 @@ export default function Home() {
                 </Link>
               ))}
               <Link
-                href={"resume.pdf"}
+                href="/projects/resume.pdf"
                 className="text-sm duration-500 text-zinc-500 hover:text-zinc-300 cursor-pointer"
+                target="_blank"
               >
                 Resume 
               </Link>
