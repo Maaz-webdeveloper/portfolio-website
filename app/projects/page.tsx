@@ -23,12 +23,13 @@ export default async function ProjectsPage() {
       url: "https://autos-five.vercel.app/",
       imgSrc: "/projects/Autos.png",
     },
-    {
-      title: "Coming Soon...",
+   {
+      title: "Text Reverse",
       description:
-        "Developing a next-generation platform focused on modern web solutions. Stay tuned for an innovative tool that combines seamless UI with powerful backend performance.",
-      url: "#",
-      imgSrc: "", // Isko khali chor den ya null kar den
+        "A versatile text utility tool designed for creators and storytellers. Featuring word-reversal, character flipping, and 20+ aesthetic font styles, it combines a seamless mobile-first UI with powerful string manipulation to elevate your social media presence.",
+      date: "2026-02-25",
+      url: "https://reverse-eight-sooty.vercel.app/",
+      imgSrc: "/projects/text-reverse.png", // Isko khali chor den ya null kar den
     },
     {
       title: "Coming Soon...",
