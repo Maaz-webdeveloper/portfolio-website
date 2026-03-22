@@ -65,6 +65,15 @@ export const Card: React.FC<CardProps> = ({
   const fallbackImg =
     "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80";
   const imageSrc = imgSrc || fallbackImg;
+  const cardReveal = prefersReducedMotion
+    ? undefined
+    : { opacity: 1, y: 0, scale: 1 };
+  const mediaReveal = prefersReducedMotion
+    ? undefined
+    : { opacity: 1, y: 0, scale: 1 };
+  const contentReveal = prefersReducedMotion
+    ? undefined
+    : { opacity: 1, y: 0 };
 
   return (
     <motion.div
@@ -72,22 +81,28 @@ export const Card: React.FC<CardProps> = ({
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       initial={prefersReducedMotion ? false : { opacity: 0, y: 28, scale: 0.98 }}
-      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      whileInView={cardReveal}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
       className={`group relative overflow-hidden rounded-xl border border-zinc-700/80 bg-zinc-950/70 shadow-[0_20px_40px_-30px_rgba(0,0,0,0.95)] duration-700 hover:border-zinc-400/50 md:border-zinc-600 md:bg-transparent md:shadow-none md:hover:bg-zinc-800/10 ${className}`}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,244,245,0.08),_transparent_45%)] opacity-70 transition duration-500 group-hover:opacity-100 md:hidden" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-300/30 to-transparent opacity-70 md:hidden" />
 
       {hasImage && (
-        <div className="relative z-20 h-44 overflow-hidden border-b border-zinc-800/80 bg-zinc-950 md:hidden">
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 18, scale: 1.03 }}
+          whileInView={mediaReveal}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-20 h-44 overflow-hidden border-b border-zinc-800/80 bg-zinc-950 md:hidden"
+        >
           <img
             src={imageSrc}
             alt={imgAlt || "Project image"}
             className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
           />
-        </div>
+        </motion.div>
       )}
 
       {hasImage && (
@@ -122,7 +137,15 @@ export const Card: React.FC<CardProps> = ({
         />
       </div>
 
-      <div className="relative z-20 h-full">{children}</div>
+      <motion.div
+        initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+        whileInView={contentReveal}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.6, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-20 h-full"
+      >
+        {children}
+      </motion.div>
     </motion.div>
   );
 };
