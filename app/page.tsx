@@ -137,12 +137,12 @@ function ProjectsPage() {
       <div className="grid grid-cols-2 gap-4 mx-auto lg:mx-0 grid-rows-2">
         {portfolioProjects.slice(0, 5).map((project, idx) => (
           <Link
+            key={`${project.title}-${project.url}-${idx}`}
             href={project.url}
             target="_blank"
             className={idx === 0 ? "row-span-2 h-full" : ""}
           >
             <Card
-              key={project.url}
               className="h-full"
               image={true}
               imgSrc={project?.imgSrc}
