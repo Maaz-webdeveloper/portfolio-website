@@ -94,7 +94,7 @@ export const Card: React.FC<CardProps> = ({
             scale,
             rotate,
             opacity: isHovering, // fade in on hover
-            zIndex: 10,
+            zIndex: 30,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
           className="hidden rounded-xl border border-zinc-200/10 object-cover shadow-2xl md:block md:h-48 md:w-72"
