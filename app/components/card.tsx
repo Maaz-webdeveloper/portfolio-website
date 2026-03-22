@@ -70,13 +70,12 @@ export const Card: React.FC<CardProps> = ({
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-300/30 to-transparent opacity-70 md:hidden" />
 
       {hasImage && (
-        <div className="relative h-44 overflow-hidden border-b border-zinc-800/80 md:hidden">
+        <div className="relative z-20 h-44 overflow-hidden border-b border-zinc-800/80 bg-zinc-950 md:hidden">
           <img
             src={imageSrc}
             alt={imgAlt || "Project image"}
             className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/35 via-zinc-950/5 to-transparent" />
         </div>
       )}
 
@@ -100,14 +99,14 @@ export const Card: React.FC<CardProps> = ({
           className="hidden rounded-xl border border-zinc-200/10 object-cover object-top shadow-2xl md:block md:h-48 md:w-72"
         />
       )}
-      <div className="pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 z-10">
         <div className="absolute inset-0 z-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
         <motion.div
-          className="absolute inset-0 z-10 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
+          className="absolute inset-0 z-0 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
           style={style}
         />
         <motion.div
-          className="absolute inset-0 z-10 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
+          className="absolute inset-0 z-0 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
           style={style}
         />
       </div>
