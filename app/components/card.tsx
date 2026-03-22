@@ -74,9 +74,9 @@ export const Card: React.FC<CardProps> = ({
           <img
             src={imageSrc}
             alt={imgAlt || "Project image"}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+            className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/35 via-zinc-950/5 to-transparent" />
         </div>
       )}
 
@@ -97,7 +97,7 @@ export const Card: React.FC<CardProps> = ({
             zIndex: 30,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="hidden rounded-xl border border-zinc-200/10 object-cover shadow-2xl md:block md:h-48 md:w-72"
+          className="hidden rounded-xl border border-zinc-200/10 object-cover object-top shadow-2xl md:block md:h-48 md:w-72"
         />
       )}
       <div className="pointer-events-none">
