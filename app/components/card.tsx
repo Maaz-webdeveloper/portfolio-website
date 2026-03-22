@@ -17,11 +17,10 @@ export const Card: React.FC<CardProps> = ({
   imgAlt,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const hasImage = image && Boolean(imgSrc);
 
-  // Use a single hover state to control the image animation
   const isHovering = useSpring(0, { stiffness: 300, damping: 40 });
 
-  // Mouse position relative to card
   const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
   const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
 
@@ -30,12 +29,10 @@ export const Card: React.FC<CardProps> = ({
     let x = e.clientX - rect.left;
     let y = e.clientY - rect.top;
 
-    // Define the safe zone (e.g., 60px from top and right)
     const safeZone = 160;
     const maxX = rect.width - safeZone;
     const minY = safeZone;
 
-    // If cursor is in the top right corner, clamp the image position
     if (x > maxX && y < minY) {
       x = maxX;
       y = minY;
@@ -56,20 +53,34 @@ export const Card: React.FC<CardProps> = ({
   const scale = useTransform(isHovering, [0, 1], [0, 1]);
   const rotate = useTransform(isHovering, [0, 1], ["-12.5deg", "12.5deg"]);
 
-  // Default fallback image if not provided
   const fallbackImg =
     "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80";
+  const imageSrc = imgSrc || fallbackImg;
 
   return (
     <div
       ref={cardRef}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      className={`overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 ${className}`}
+      className={`group relative overflow-hidden rounded-xl border border-zinc-700/80 bg-zinc-950/70 shadow-[0_20px_40px_-30px_rgba(0,0,0,0.95)] duration-700 hover:border-zinc-400/50 md:border-zinc-600 md:bg-transparent md:shadow-none md:hover:bg-zinc-800/10 ${className}`}
     >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,244,245,0.08),_transparent_45%)] opacity-70 transition duration-500 group-hover:opacity-100 md:hidden" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-300/30 to-transparent opacity-70 md:hidden" />
+
+      {hasImage && (
+        <div className="relative h-44 overflow-hidden border-b border-zinc-800/80 md:hidden">
+          <img
+            src={imageSrc}
+            alt={imgAlt || "Project image"}
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/35 to-transparent" />
+        </div>
+      )}
+
       {image && (
         <motion.img
-          src={imgSrc || fallbackImg}
+          src={imageSrc}
           alt={imgAlt || "Project image"}
           style={{
             top: mouseY,
@@ -84,7 +95,7 @@ export const Card: React.FC<CardProps> = ({
             zIndex: 10,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="w-32 rounded-lg md:h-48 md:w-64 shadow-lg"
+          className="hidden rounded-xl border border-zinc-200/10 object-cover shadow-2xl md:block md:h-48 md:w-72"
         />
       )}
       <div className="pointer-events-none">
@@ -99,7 +110,7 @@ export const Card: React.FC<CardProps> = ({
         />
       </div>
 
-      {children}
+      <div className="relative z-20 h-full">{children}</div>
     </div>
   );
 };

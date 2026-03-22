@@ -2,10 +2,8 @@ import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
 
-import { Navigation } from "./components/nav";
 import { Card } from "./components/card";
 import { Article } from "./projects/article";
-import { Eye } from "lucide-react";
 
 const navigation = [
   { name: "Projects", href: "/projects" },
@@ -114,13 +112,13 @@ function ProjectsPage() {
   ];
 
   return (
-    <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32 pb-32">
-      <div className="w-full mx-auto lg:mx-0 flex items-center justify-between">
+    <section className="mx-auto max-w-7xl space-y-8 px-4 pb-24 pt-16 sm:px-6 md:space-y-16 md:px-6 md:pt-24 lg:px-8 lg:pt-32 lg:pb-32">
+      <div className="flex w-full flex-col items-start gap-4 lg:mx-0 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Projects
           </h2>
-          <p className="mt-4 text-zinc-400">
+          <p className="mt-4 max-w-xl text-sm leading-6 text-zinc-400 sm:text-base md:max-w-none md:leading-normal">
             Some of the projects are from work and some are on my own time.
           </p>
         </div>
@@ -132,26 +130,27 @@ function ProjectsPage() {
         </Link>
       </div>
 
-      <div className="w-full h-px bg-zinc-800" />
+      <div className="h-px w-full bg-zinc-800" />
 
-      <div className="grid grid-cols-2 gap-4 mx-auto lg:mx-0 grid-rows-2">
+      <div className="mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 sm:grid-rows-2 lg:mx-0">
         {portfolioProjects.slice(0, 5).map((project, idx) => (
           <Link
             key={`${project.title}-${project.url}-${idx}`}
             href={project.url}
             target="_blank"
-            className={idx === 0 ? "row-span-2 h-full" : ""}
+            className={idx === 0 ? "h-full sm:row-span-2" : "h-full"}
           >
             <Card
-              className="h-full"
+              className={idx === 0 ? "h-full min-h-[320px] sm:min-h-0" : "h-full min-h-[260px] sm:min-h-0"}
               image={true}
               imgSrc={project?.imgSrc}
+              imgAlt={project.title}
             >
               <Article project={project as any} views={0} />
             </Card>
           </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

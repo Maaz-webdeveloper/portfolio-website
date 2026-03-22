@@ -3,7 +3,6 @@ import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-import { Eye } from "lucide-react";
 
 export default async function ProjectsPage() {
   const portfolioProjects = [
@@ -91,30 +90,39 @@ export default async function ProjectsPage() {
   return (
     <div className="relative pb-16">
       <Navigation />
-      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-        <div className="max-w-2xl mx-auto lg:mx-0">
+      <section className="mx-auto max-w-7xl space-y-8 px-4 pb-24 pt-20 sm:px-6 md:space-y-16 md:px-6 md:pt-24 lg:px-8 lg:pt-32">
+        <div className="flex w-full flex-col items-start gap-4 lg:mx-0 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Projects
           </h2>
-          <p className="mt-4 text-zinc-400">
+            <p className="mt-4 max-w-xl text-sm leading-6 text-zinc-400 sm:text-base md:max-w-none md:leading-normal">
             Some of the projects are from work and some are on my own time.
           </p>
+          </div>
+          <Link
+            href="/contact"
+            className="duration-200 text-zinc-400 hover:text-zinc-100"
+          >
+            Contact
+          </Link>
         </div>
 
-        <div className="w-full h-px bg-zinc-800" />
+        <div className="h-px w-full bg-zinc-800" />
 
-        <div className="grid grid-cols-2 gap-4 mx-auto lg:mx-0 grid-rows-2">
+        <div className="mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 sm:grid-rows-2 lg:mx-0">
           {portfolioProjects.slice(0, 5).map((project, idx) => (
             <Link
               key={`${project.title}-${project.url}-${idx}`}
               href={project.url}
               target="_blank"
-              className={idx === 0 ? "row-span-2 h-full" : ""}
+              className={idx === 0 ? "h-full sm:row-span-2" : "h-full"}
             >
               <Card
-                className="h-full"
+                className={idx === 0 ? "h-full min-h-[320px] sm:min-h-0" : "h-full min-h-[260px] sm:min-h-0"}
                 image={true}
                 imgSrc={project?.imgSrc}
+                imgAlt={project.title}
               >
                 <Article project={project as any} views={0} />
               </Card>
@@ -122,9 +130,9 @@ export default async function ProjectsPage() {
           ))}
         </div>
 
-        <div className="w-full h-px bg-zinc-800" />
+        <div className="h-px w-full bg-zinc-800" />
 
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:grid-cols-3">
           {portfolioProjects.slice(5).map((project, idx) => (
             <Link
               key={`${project.title}-${project.url}-${idx}`}
@@ -132,13 +140,13 @@ export default async function ProjectsPage() {
               target="_blank"
               className="h-full"
             >
-              <Card>
+              <Card className="h-full min-h-[240px] sm:min-h-0">
                 <Article project={project as any} views={0} />
               </Card>
             </Link>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }
