@@ -1,5 +1,11 @@
 "use client";
-import { motion, useMotionTemplate, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionTemplate,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { PropsWithChildren, useRef } from "react";
 
 type CardProps = PropsWithChildren<{ 
@@ -20,6 +26,7 @@ export const Card: React.FC<CardProps> = ({
   const hasImage = image && Boolean(imgSrc);
   const previewWidth = 288;
   const previewHeight = 192;
+  const prefersReducedMotion = useReducedMotion();
 
   const isHovering = useSpring(0, { stiffness: 300, damping: 40 });
 
@@ -60,10 +67,14 @@ export const Card: React.FC<CardProps> = ({
   const imageSrc = imgSrc || fallbackImg;
 
   return (
-    <div
+    <motion.div
       ref={cardRef}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 28, scale: 0.98 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
       className={`group relative overflow-hidden rounded-xl border border-zinc-700/80 bg-zinc-950/70 shadow-[0_20px_40px_-30px_rgba(0,0,0,0.95)] duration-700 hover:border-zinc-400/50 md:border-zinc-600 md:bg-transparent md:shadow-none md:hover:bg-zinc-800/10 ${className}`}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,244,245,0.08),_transparent_45%)] opacity-70 transition duration-500 group-hover:opacity-100 md:hidden" />
@@ -112,6 +123,6 @@ export const Card: React.FC<CardProps> = ({
       </div>
 
       <div className="relative z-20 h-full">{children}</div>
-    </div>
+    </motion.div>
   );
 };
