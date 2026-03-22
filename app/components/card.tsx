@@ -18,6 +18,8 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const hasImage = image && Boolean(imgSrc);
+  const previewWidth = 288;
+  const previewHeight = 192;
 
   const isHovering = useSpring(0, { stiffness: 300, damping: 40 });
 
@@ -26,17 +28,17 @@ export const Card: React.FC<CardProps> = ({
 
   function onMouseMove(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const rect = e.currentTarget.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let y = e.clientY - rect.top;
+    const halfPreviewWidth = Math.min(previewWidth / 2, rect.width / 2);
+    const halfPreviewHeight = Math.min(previewHeight / 2, rect.height / 2);
 
-    const safeZone = 160;
-    const maxX = rect.width - safeZone;
-    const minY = safeZone;
-
-    if (x > maxX && y < minY) {
-      x = maxX;
-      y = minY;
-    }
+    const x = Math.min(
+      Math.max(e.clientX - rect.left, halfPreviewWidth),
+      rect.width - halfPreviewWidth
+    );
+    const y = Math.min(
+      Math.max(e.clientY - rect.top, halfPreviewHeight),
+      rect.height - halfPreviewHeight
+    );
 
     mouseX.set(x);
     mouseY.set(y);
@@ -78,7 +80,7 @@ export const Card: React.FC<CardProps> = ({
         </div>
       )}
 
-      {image && (
+      {hasImage && (
         <motion.img
           src={imageSrc}
           alt={imgAlt || "Project image"}
