@@ -11,7 +11,7 @@
 
 ## 🌐 Live Demo
 
-👉 **[https://maaz-dev-portfolio.vercel.app](https://maaz-dev-portfolio.vercel.app)**
+👉 **[https://maaz-dev-portfolio.vercel.app](https://www.maazdev.me/)**
 
 ---
 
