@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   },
   description:
     "Maaz is a passionate Frontend Developer specializing in React and Next.js, building clean, modern and scalable web applications.",
+  authors: [{ name: "Maaz" }],
 
   // ✅ Canonical link naye domain ke mutabiq automatic theek rahega
   alternates: {
