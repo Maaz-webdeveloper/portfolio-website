@@ -71,15 +71,19 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-			<head>
-				<Analytics />
-			</head>
-			<body className="bg-black">
-				{children}
-				<SpeedInsights />
-				<VercelAnalytics />
-			</body>
-		</html>
-	);
+    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+      <head>
+        <Analytics />
+        <meta
+          name="google-site-verification"
+          content="hpOHhtWOaYECGdjorKGt4q8YgCETQc8Fctnu0ZallIs"
+        />
+      </head>
+      <body className="bg-black">
+        {children}
+        <SpeedInsights />
+        <VercelAnalytics />
+      </body>
+    </html>
+  );
 }
