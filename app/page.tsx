@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+export const revalidate = false;
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
