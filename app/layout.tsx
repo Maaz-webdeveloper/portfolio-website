@@ -45,13 +45,15 @@ export const metadata: Metadata = {
 	},
 };
 const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const calSans = LocalFont({
-	src: "../public/fonts/CalSans-SemiBold.ttf",
-	variable: "--font-calsans",
+  src: "../public/fonts/CalSans-SemiBold.ttf",
+  variable: "--font-calsans",
+  display: "swap",
 });
 
 export default function RootLayout({
