@@ -2,14 +2,14 @@ import { withContentlayer } from "next-contentlayer";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-  experimental: {
-    mdxRs: true,
-  },
-  images: {
-    formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 31536000,
-  },
+	pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+	experimental: {
+		mdxRs: true,
+	},
+	images: {
+		formats: ["image/avif", "image/webp"],
+		minimumCacheTTL: 31536000,
+	},
 };
 
 export default withContentlayer(nextConfig);
