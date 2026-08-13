@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     siteName: "Maaz Portfolio",
     images: [
       {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
+        url: "/favicon.png", // 👈 /og.png mita kar /favicon.png likhein
+        width: 500, // 👈 1200 mita kar 500 likhein
+        height: 500, // 👈 630 mita kar 500 likhein
         alt: "Maaz Portfolio Banner",
       },
     ],
