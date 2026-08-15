@@ -7,8 +7,7 @@ import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-	// ✅ Naya custom domain base URL set kar diya
-	metadataBase: new URL("https://maazdev.me"),
+	metadataBase: new URL("https://www.maazdev.me"),
 
 	title: {
 		default: "Maaz | Frontend Developer",
