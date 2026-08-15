@@ -49,6 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Maaz | Frontend Developer",
     card: "summary_large_image",
+    images: ["/favicon.png"], // 👈 Yeh line add karein
   },
   icons: {
     shortcut: "/favicon.png",
