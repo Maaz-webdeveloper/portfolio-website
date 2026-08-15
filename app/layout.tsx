@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/favicon.png",
-        width: 500, // 👈 500 ko 1200 kar dein
-        height: 500, // 👈 500 ko 630 kar dein
+        width: 1200, // 👈 500 ko 1200 kar dein
+        height: 600, // 👈 500 ko 630 kar dein
         alt: "Maaz Portfolio Banner",
       },
     ],
