@@ -30,18 +30,19 @@ export const metadata: Metadata = {
     title: "Maaz | Frontend Developer",
     description:
       "Frontend Developer specializing in React and Next.js. Building modern, responsive and high-performance web experiences.",
-    url: "https://www.maazdev.me", // 👈 www add kar diya
+    url: "https://www.maazdev.me",
     siteName: "Maaz Portfolio",
+    type: "article", 
+    authors: ["Maaz"], 
     images: [
       {
         url: "/favicon.png",
-        width: 1200, // 👈 500 ko 1200 kar dein
-        height: 600, // 👈 500 ko 630 kar dein
+        width: 1200,
+        height: 600,
         alt: "Maaz Portfolio Banner",
       },
     ],
     locale: "en-US",
-    type: "website",
   },
   robots: {
     index: true,
