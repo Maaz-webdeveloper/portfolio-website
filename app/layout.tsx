@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     title: "Maaz | Frontend Developer",
     description:
       "Frontend Developer specializing in React and Next.js. Building modern, responsive and high-performance web experiences.",
-    url: "https://maazdev.me", // ✅ URL update kar diya
+    url: "https://www.maazdev.me", // 👈 www add kar diya
     siteName: "Maaz Portfolio",
     images: [
       {
-        url: "/favicon.png", // 👈 /og.png mita kar /favicon.png likhein
-        width: 500, // 👈 1200 mita kar 500 likhein
-        height: 500, // 👈 630 mita kar 500 likhein
+        url: "/favicon.png",
+        width: 1200, // 👈 500 ko 1200 kar dein
+        height: 630, // 👈 500 ko 630 kar dein
         alt: "Maaz Portfolio Banner",
       },
     ],
