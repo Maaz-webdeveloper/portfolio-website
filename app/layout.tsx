@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/favicon.png",
-        width: 1200, // 👈 500 ko 1200 kar dein
-        height: 630, // 👈 500 ko 630 kar dein
+        width: 500, // 👈 500 ko 1200 kar dein
+        height: 500, // 👈 500 ko 630 kar dein
         alt: "Maaz Portfolio Banner",
       },
     ],
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "Maaz | Frontend Developer",
-    card: "summary_large_image",
+    card: "summary",
     images: ["/favicon.png"], // 👈 Yeh line add karein
   },
   icons: {
