@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.maazdev.me"),
@@ -32,8 +33,8 @@ export const metadata: Metadata = {
       "Frontend Developer specializing in React and Next.js. Building modern, responsive and high-performance web experiences.",
     url: "https://www.maazdev.me",
     siteName: "Maaz Portfolio",
-    type: "article", 
-    authors: ["Maaz"], 
+    type: "article",
+    authors: ["Maaz"],
     images: [
       {
         url: "/favicon.png",
@@ -59,23 +60,23 @@ export const metadata: Metadata = {
 };
 
 const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-	display: "swap",
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const calSans = LocalFont({
-	src: "../public/fonts/CalSans-SemiBold.ttf",
-	variable: "--font-calsans",
-	display: "swap",
+  src: "../public/fonts/CalSans-SemiBold.ttf",
+  variable: "--font-calsans",
+  display: "swap",
 });
 
 export default function RootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return (
+  return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
         <Analytics />
@@ -84,6 +85,7 @@ export default function RootLayout({
         {children}
         <SpeedInsights />
         <VercelAnalytics />
+        <GoogleAnalytics gaId="G-WQW0YHKXZY" />
       </body>
     </html>
   );
